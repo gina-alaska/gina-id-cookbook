@@ -39,11 +39,17 @@ Recipes
 default
 -------
 
+includes web & database recipes to setup a single node to run the GINA::ID web application
+
 database
 --------
 
+configures postgresql and creates initial database for the gina_id db user
+
 web
 ---
+
+configures nginx, puma and does a revision deploy of the GINA::ID web application
 
 Resources/Providers
 ===================
