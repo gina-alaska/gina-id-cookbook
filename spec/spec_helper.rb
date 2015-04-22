@@ -10,11 +10,11 @@ def configure_chef
 end
 
 def get_databag_item(name, item)
-  filename = File.join('..', '..', 'data_bags', name, "#{item}.json")
+  filename = File.expand_path(File.join('~/.chef/data_bags', name, "#{item}.json"))
   { item => JSON.parse(IO.read(filename)) }
 end
 
 def setup_data_bags(server)
-  server.create_data_bag('apps', get_databag_item('apps', 'gina_id'))
+  server.create_data_bag('apps', get_databag_item('apps', 'gina_id_production'))
   server.create_data_bag('users', get_databag_item('users', 'webdev'))
 end
