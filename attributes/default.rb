@@ -1,4 +1,4 @@
-default['app']['data_bag'] = 'gina_id'
+default['app']['data_bag'] = 'gina_id_production'
 default['app']['name'] = 'gina_id'
 
 default[default['app']['name']]['puma_port'] = '8080'
