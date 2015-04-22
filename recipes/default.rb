@@ -24,5 +24,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+
+package 'ca-certificates' do
+	action :nothing
+end.run_action(:upgrade)
+
 include_recipe 'gina_id::database'
 include_recipe 'gina_id::web'
