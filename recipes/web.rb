@@ -1,0 +1,9 @@
+include_recipe 'chef-vault'
+include_recipe 'runit'
+include_recipe 'git'
+include_recipe 'postgresql::client'
+include_recipe "gina_id::_user"
+include_recipe "gina_id::_ruby"
+include_recipe "gina_id::_application"
+include_recipe 'gina_id::_runit'
+include_recipe 'gina_id::_nginx'

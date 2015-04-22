@@ -1,0 +1,17 @@
+---
+driver:
+  name: vagrant
+  network:
+    - ["forwarded_port", { guest: 80, host: 3434 }]
+provisioner:
+  name: chef_zero
+  data_bags_path: "~/.chef/data_bags/"
+
+platforms:
+  - name: centos-6.5
+
+suites:
+  - name: default
+    run_list:
+      - recipe[gina_id::default]
+    attributes:
