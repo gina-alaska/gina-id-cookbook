@@ -4,10 +4,12 @@ default['app']['name'] = 'gina_id'
 default[default['app']['name']]['puma_port'] = '8080'
 default[default['app']['name']]['gem']['dep_packages'] = []
 
-default["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["rule"] = "-m state --state NEW -p tcp --dport 22 -m recent --update --seconds 60 --hitcount 20 -j DROP"
-default["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["ip_version"] = 4
-default["iptables-ng"]["rules"]["filter"]["INPUT"]["80-http"]["rule"] = "-m state --state NEW -p tcp --dport 80 -j ACCEPT"
-default["iptables-ng"]["rules"]["filter"]["INPUT"]["80-http"]["ip_version"] = 4
+override['sensu']['version']  = "0.16.0-1"
+
+override["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["rule"] = "-m state --state NEW -p tcp --dport 22 -m recent --update --seconds 60 --hitcount 20 -j DROP"
+override["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["ip_version"] = 4
+override["iptables-ng"]["rules"]["filter"]["INPUT"]["80-http"]["rule"] = "-m state --state NEW -p tcp --dport 80 -j ACCEPT"
+override["iptables-ng"]["rules"]["filter"]["INPUT"]["80-http"]["ip_version"] = 4
 
 override['postgresql']['enable_pgdg_yum'] = true
 override['postgresql']['version'] = "9.3"
