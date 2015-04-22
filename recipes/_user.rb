@@ -10,7 +10,3 @@ user_account 'webdev' do
   ssh_keys account['ssh_keys']
   ssh_keygen false
 end
-#
-# file ::File.join(node['sandy']['home'], '.gemrc') do
-#   content 'gem: --no-ri --no-rdoc --bindir /usr/bin'
-# end

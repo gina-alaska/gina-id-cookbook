@@ -4,6 +4,8 @@ describe 'gina_id::web' do
   let(:chef_run) do
     ChefSpec::ServerRunner.new do |node, server|
       setup_data_bags(server)
+      stub_command('git --version >/dev/null').and_return(false)
+      stub_command('which nginx').and_return(false)
     end.converge(described_recipe)
   end
 
@@ -28,12 +30,12 @@ describe 'gina_id::web' do
   end
 
 
-  it 'should add web user' do
+  it 'should add webdev user' do
     expect(chef_run).to create_user('webdev')
   end
 
   it 'should create application directory' do
-    expect(chef_run).to create_directory('/www/gina_id')
+    expect(chef_run).to create_directory('/www/gina_id/')
   end
 
   it 'should create application shared directory' do

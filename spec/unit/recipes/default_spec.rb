@@ -32,6 +32,8 @@ describe 'gina_id::default' do
     before do
       configure_chef
       stub_command("ls /var/lib/pgsql/9.3/data/recovery.conf").and_return(false)
+      stub_command('git --version >/dev/null').and_return(false)
+      stub_command('which nginx').and_return(false)
     end
 
     let(:chef_run) do
