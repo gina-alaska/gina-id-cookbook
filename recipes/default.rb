@@ -24,6 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+#get latest version of sensu
+node.override['sensu']['version']  = "0.16.0-1"
 
 package 'ca-certificates' do
 	action :nothing
