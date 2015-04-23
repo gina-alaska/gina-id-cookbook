@@ -9,6 +9,8 @@ override["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["rule"] = "-m stat
 override["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["ip_version"] = 4
 override["iptables-ng"]["rules"]["filter"]["INPUT"]["80-http"]["rule"] = "-m state --state NEW -p tcp --dport 80 -j ACCEPT"
 override["iptables-ng"]["rules"]["filter"]["INPUT"]["80-http"]["ip_version"] = 4
+override["iptables-ng"]["rules"]["filter"]["INPUT"]["443-https"]["rule"] = "-m state --state NEW -p tcp --dport 443 -j ACCEPT"
+override["iptables-ng"]["rules"]["filter"]["INPUT"]["443-https"]["ip_version"] = 4
 
 override['postgresql']['enable_pgdg_yum'] = true
 override['postgresql']['version'] = "9.3"
