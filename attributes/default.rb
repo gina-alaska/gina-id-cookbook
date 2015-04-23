@@ -1,10 +1,9 @@
 default['app']['data_bag'] = 'gina_id_production'
 default['app']['name'] = 'gina_id'
+default['app']['ssl_data_bag'] = 'id.gina.alaska.edu'
 
 default[default['app']['name']]['puma_port'] = '8080'
 default[default['app']['name']]['gem']['dep_packages'] = []
-
-override['sensu']['version']  = "0.16.0-1"
 
 override["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["rule"] = "-m state --state NEW -p tcp --dport 22 -m recent --update --seconds 60 --hitcount 20 -j DROP"
 override["iptables-ng"]["rules"]["filter"]["INPUT"]["21-ssh"]["ip_version"] = 4

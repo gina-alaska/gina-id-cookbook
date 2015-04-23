@@ -1,6 +1,20 @@
 node.override['nginx']['default_site_enabled'] = false
 node.override['nginx']['repo_source'] = 'nginx'
+node.override['nginx']['source']['modules'] = ['http_ssl_module.rb']
 include_recipe 'nginx'
+
+certificate_manage "nginx" do
+  cert_path "/etc/nginx/ssl"
+  data_bag_type "vault"
+  data_bag "ssl_certs"
+  search_id node['app']['ssl_data_bag']
+  owner "nginx"
+  group "nginx"
+  cert_file "#{node['app']['name']}.pem"
+  key_file "#{node['app']['name']}.key"
+  nginx_cert true
+  only_if { node['app'].attribute?('ssl_data_bag') }
+end
 
 app = chef_vault_item('apps', node['app']['data_bag'])
 
@@ -18,7 +32,10 @@ template "/etc/nginx/sites-available/#{node['app']['name']}" do
     install_path: "#{app['install_path']}/current",
     name: node['app']['name'],
     environment: node['app']['environment'],
-    port: node[node['app']['name']]['puma_port']
+    port: node[node['app']['name']]['puma_port'],
+    enable_ssl: node['app'].attribute?('ssl_data_bag'),
+    ssl_cert: "ssl/certs/#{node['app']['name']}.pem",
+    ssl_key: "ssl/private/#{node['app']['name']}.key"
   })
 end
 

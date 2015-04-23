@@ -2,7 +2,8 @@
 driver:
   name: vagrant
   network:
-    - ["forwarded_port", { guest: 80, host: 3434 }]
+    - ["forwarded_port", { guest: 80, host: 8000 }]
+    - ["forwarded_port", { guest: 443, host: 4430 }]
 provisioner:
   name: chef_zero
   data_bags_path: ~/.chef/data_bags/
