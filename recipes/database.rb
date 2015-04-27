@@ -45,3 +45,5 @@ postgresql_database_user app['db']['username'] do
   privileges    [:all]
   action        :grant
 end
+
+include_recipe 'gina_id::_db_backup'

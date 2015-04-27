@@ -1,6 +1,6 @@
 node.default['rubies']['list']                 = ['ruby 2.1.3']
 node.default['rubies']['bundler']['install']   = false
-node.default['chruby_install']['default_ruby'] = true
+node.default['chruby_install']['default_ruby'] = '2.1.3'
 
 include_recipe 'rubies'
 
