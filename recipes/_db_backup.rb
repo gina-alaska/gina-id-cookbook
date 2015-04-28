@@ -26,6 +26,10 @@ backup_model :postgresql do
     end
   DEF
 
+  cron_options(
+    path: "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:#{node['languages']['ruby']['bin_dir']}"
+  )
+
   schedule({
     :minute => 0,
     :hour   => 0
