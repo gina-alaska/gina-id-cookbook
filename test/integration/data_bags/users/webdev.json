@@ -1,0 +1,11 @@
+{
+  "id": "webdev",
+  "uid": 5061,
+  "gid": 5061,
+  "home": "/home/webdev",
+  "shell": "/bin/bash",
+  "comment": "Web Developer",
+  "admin": false,
+  "ssh_keys": [
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "gina_id_production",
+  "install_path": "/www/gina_id",
+  "repository": "https://github.com/gina-alaska/gina-id.git",
+  "revision": "1.4.1",
+  "precompile_assets": true,
+  "env": {
+    "SECRET_KEY_BASE": "asdsr32dfaf83981hfkc1b891b89790n8x1m11pudxss21289fj2391bc1b82ksoszapqpf838c1kd1r4482i922231xjmklxlnhabku1155pijcsacti",
+    "GOOGLE_CLIENT_ID": "asdfasdfa",
+    "GOOGLE_CLIENT_SECRET": "asdfasdfasdf"
+  },
+  "db": {
+    "username": "gina_id",
+    "password": "test",
+    "name": "gina_id_production",
+    "host": "localhost",
+    "port": 5432,
+    "pool": 5
+  }
+}

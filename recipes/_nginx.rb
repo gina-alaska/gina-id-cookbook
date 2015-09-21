@@ -13,7 +13,7 @@ certificate_manage "nginx" do
   cert_file "#{node['app']['name']}.pem"
   key_file "#{node['app']['name']}.key"
   nginx_cert true
-  only_if { node['app'].attribute?('ssl_data_bag') }
+  only_if { node['app'].attribute?('ssl_data_bag') && !node['app']['ssl_data_bag'].empty? }
 end
 
 app = chef_vault_item('apps', node['app']['data_bag'])

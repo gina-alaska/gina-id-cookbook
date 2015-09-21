@@ -2,17 +2,18 @@
 driver:
   name: vagrant
   network:
-    - ["forwarded_port", { guest: 80, host: 8000 }]
-    - ["forwarded_port", { guest: 443, host: 4430 }]
+    - ["forwarded_port", { guest: 80, host: 8001 }]
+    - ["forwarded_port", { guest: 443, host: 4431 }]
 provisioner:
   name: chef_zero
-  data_bags_path: ~/.chef/data_bags/
 
 platforms:
-  - name: centos-6.5
+  - name: bento/centos-6.7
 
 suites:
   - name: default
     run_list:
       - recipe[gina_id::default]
     attributes:
+      app:
+        ssl_data_bag: ''
