@@ -30,7 +30,7 @@ template "/etc/nginx/sites-available/#{node['app']['name']}" do
   source 'nginx_site.erb'
   variables({
     install_path: "#{app['install_path']}/current",
-    name: node['app']['name'],
+    name: node['app']['host'],
     environment: node['app']['environment'],
     port: node[node['app']['name']]['puma_port'],
     enable_ssl: node['app'].attribute?('ssl_data_bag'),
