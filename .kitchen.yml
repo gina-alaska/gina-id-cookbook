@@ -2,13 +2,13 @@
 driver:
   name: vagrant
   network:
-    - ["forwarded_port", { guest: 80, host: 8001 }]
-    - ["forwarded_port", { guest: 443, host: 4431 }]
+    - ["forwarded_port", { guest: 80, host: 8001, auto_correct: true }]
+    - ["forwarded_port", { guest: 443, host: 4431, auto_correct: true }]
 provisioner:
   name: chef_zero
 
 platforms:
-  - name: bento/centos-6.7
+  - name: centos-6.8
 
 suites:
   - name: default
@@ -17,3 +17,5 @@ suites:
     attributes:
       app:
         ssl_data_bag: ''
+      acme:
+        endpoint: https://acme-staging.ap.letsencrypt.org
