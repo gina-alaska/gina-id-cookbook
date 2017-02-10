@@ -9,7 +9,9 @@ provisioner:
 
 platforms:
   - name: centos-6.8
-
+    attributes:
+      firewall:
+        allow_ssh: true
 suites:
   - name: default
     run_list:

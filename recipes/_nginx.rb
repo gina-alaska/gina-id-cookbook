@@ -38,3 +38,9 @@ acme_certificate 'id.gina.alaska.edu' do
   wwwroot node.default['nginx']['default_root']
   not_if { vagrant? }
 end
+
+include_recipe 'firewall::default'
+firewall_rule 'http_https' do
+  port [80, 443]
+  command :allow
+end
