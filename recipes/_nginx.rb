@@ -32,8 +32,8 @@ acme_selfsigned 'id.gina.alaska.edu' do
 end
 
 acme_certificate 'id.gina.alaska.edu' do
-  crt '/etc/ssl/certs/vctr.crt'
-  key '/etc/ssl/certs/vctr.key'
+  crt ssl_crt
+  key ssl_key
   method 'http'
   wwwroot "#{app['install_path']}/current/public"
   not_if { vagrant? }
