@@ -4,7 +4,7 @@ maintainer_email 'will@alaska.edu'
 license          'mit'
 description      'Installs/Configures gina_id'
 long_description 'Installs/Configures gina_id'
-version          '1.2.2'
+version          '2.0.0'
 
 depends 'chef-vault'
 depends 'postgresql'
