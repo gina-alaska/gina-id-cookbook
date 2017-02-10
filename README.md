@@ -1,3 +1,5 @@
+# DEPRECATED - moved to https://github.alaska.edu/gina-cookbooks/gina_id
+
 # GINA::ID Cookbook
 
 Description
