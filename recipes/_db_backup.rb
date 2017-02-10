@@ -4,7 +4,7 @@ app = chef_vault_item('apps', node['app']['data_bag'])
 
 node.default['backup']['version'] = '4.3.0'
 package %w( libxml2 libxml2-devel ) do
-  action :upgrade
+  action [:install,:upgrade]
 end
 
 chef_gem 'nokogiri' do
